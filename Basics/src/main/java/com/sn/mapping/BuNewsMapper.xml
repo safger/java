@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.BuNewsMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.BuNews" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="type" column="TYPE"  jdbcType="VARCHAR" />
+        <result property="fullname" column="FULLNAME"  jdbcType="VARCHAR" />
+        <result property="content" column="CONTENT"  jdbcType="LONGVARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="TIMESTAMP" />
+        <result property="img" column="IMG"  jdbcType="VARCHAR" />
+        <result property="readnum" column="READNUM"  jdbcType="INTEGER" />
+        <result property="praise" column="PRAISE"  jdbcType="INTEGER" />
+        <result property="remark" column="REMARK"  jdbcType="VARCHAR" />
+        <result property="fx" column="FX"  jdbcType="VARCHAR" />
+        <result property="fy" column="FY"  jdbcType="VARCHAR" />
+        <result property="comment" column="COMMENT"  jdbcType="INTEGER" />
+        <result property="sort" column="SORT"  jdbcType="INTEGER" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         TYPE ,
+         FULLNAME ,
+         CONTENT ,
+         CREATEDATE ,
+         MODIFYDATE ,
+         IMG ,
+         READNUM ,
+         PRAISE ,
+         REMARK ,
+         FX ,
+         FY ,
+         COMMENT ,
+         SORT 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from bu_news
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bu_news
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.BuNews" >
+    
+         insert into bu_news ( 
+         		FUID , 
+         	          		TYPE , 
+         	          		FULLNAME , 
+         	          		CONTENT , 
+         	          		CREATEDATE , 
+         	          		MODIFYDATE , 
+         	          		IMG , 
+         	          		READNUM , 
+         	          		PRAISE , 
+         	          		REMARK , 
+         	          		FX , 
+         	          		FY , 
+         	          		COMMENT , 
+         	          		SORT  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{type,jdbcType=VARCHAR} , 
+   	 	   	 		#{fullname,jdbcType=VARCHAR} , 
+   	 	   	 		#{content,jdbcType=LONGVARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{modifydate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{img,jdbcType=VARCHAR} , 
+   	 	   	 		#{readnum,jdbcType=INTEGER} , 
+   	 	   	 		#{praise,jdbcType=INTEGER} , 
+   	 	   	 		#{remark,jdbcType=VARCHAR} , 
+   	 	   	 		#{fx,jdbcType=VARCHAR} , 
+   	 	   	 		#{fy,jdbcType=VARCHAR} , 
+   	 	   	 		#{comment,jdbcType=INTEGER} , 
+   	 	   	 		#{sort,jdbcType=INTEGER}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.BuNews">
+  	  insert into  bu_news
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="type != null" >
+  	 	  TYPE ,  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 	  FULLNAME ,  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 	  CONTENT ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="img != null" >
+  	 	  IMG ,  
+  	  	</if>
+  	  	<if test="readnum != null" >
+  	 	  READNUM ,  
+  	  	</if>
+  	  	<if test="praise != null" >
+  	 	  PRAISE ,  
+  	  	</if>
+  	  	<if test="remark != null" >
+  	 	  REMARK ,  
+  	  	</if>
+  	  	<if test="fx != null" >
+  	 	  FX ,  
+  	  	</if>
+  	  	<if test="fy != null" >
+  	 	  FY ,  
+  	  	</if>
+  	  	<if test="comment != null" >
+  	 	  COMMENT ,  
+  	  	</if>
+  	  	<if test="sort != null" >
+  	 	  SORT   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="type != null" >
+        	#{type,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fullname != null" >
+        	#{fullname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="content != null" >
+        	#{content,jdbcType=LONGVARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="img != null" >
+        	#{img,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="readnum != null" >
+        	#{readnum,jdbcType=INTEGER} , 
+       </if>
+    	<if test="praise != null" >
+        	#{praise,jdbcType=INTEGER} , 
+       </if>
+    	<if test="remark != null" >
+        	#{remark,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fx != null" >
+        	#{fx,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fy != null" >
+        	#{fy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="comment != null" >
+        	#{comment,jdbcType=INTEGER} , 
+       </if>
+    	<if test="sort != null" >
+        	#{sort,jdbcType=INTEGER}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.BuNews" >
+    update  bu_news
+    <set >
+    	<if test="type != null" >
+        	  TYPE=#{type,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fullname != null" >
+        	  FULLNAME=#{fullname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="content != null" >
+        	  CONTENT=#{content,jdbcType=LONGVARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="img != null" >
+        	  IMG=#{img,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="readnum != null" >
+        	  READNUM=#{readnum,jdbcType=INTEGER} , 
+       </if>
+    	<if test="praise != null" >
+        	  PRAISE=#{praise,jdbcType=INTEGER} , 
+       </if>
+    	<if test="remark != null" >
+        	  REMARK=#{remark,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fx != null" >
+        	  FX=#{fx,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fy != null" >
+        	  FY=#{fy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="comment != null" >
+        	  COMMENT=#{comment,jdbcType=INTEGER} , 
+       </if>
+    	<if test="sort != null" >
+        	  SORT=#{sort,jdbcType=INTEGER}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.BuNews" >
+    update bu_news
+    set 
+        	  TYPE=#{type,jdbcType=VARCHAR} , 
+        	  FULLNAME=#{fullname,jdbcType=VARCHAR} , 
+        	  CONTENT=#{content,jdbcType=LONGVARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+        	  IMG=#{img,jdbcType=VARCHAR} , 
+        	  READNUM=#{readnum,jdbcType=INTEGER} , 
+        	  PRAISE=#{praise,jdbcType=INTEGER} , 
+        	  REMARK=#{remark,jdbcType=VARCHAR} , 
+        	  FX=#{fx,jdbcType=VARCHAR} , 
+        	  FY=#{fy,jdbcType=VARCHAR} , 
+        	  COMMENT=#{comment,jdbcType=INTEGER} , 
+        	  SORT=#{sort,jdbcType=INTEGER}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.BuNews" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_news
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="type != null" >
+  	 		   and    TYPE  = #{type}  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 		   and    FULLNAME  = #{fullname}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="img != null" >
+  	 		   and    IMG  = #{img}  
+  	  	</if>
+  	  	<if test="readnum != null" >
+  	 		   and    READNUM  = #{readnum}  
+  	  	</if>
+  	  	<if test="praise != null" >
+  	 		   and    PRAISE  = #{praise}  
+  	  	</if>
+  	  	<if test="remark != null" >
+  	 		   and    REMARK  = #{remark}  
+  	  	</if>
+  	  	<if test="fx != null" >
+  	 		   and    FX  = #{fx}  
+  	  	</if>
+  	  	<if test="fy != null" >
+  	 		   and    FY  = #{fy}  
+  	  	</if>
+  	  	<if test="comment != null" >
+  	 		   and    COMMENT  = #{comment}  
+  	  	</if>
+  	  	<if test="sort != null" >
+  	 		   and    SORT  = #{sort}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.BuNews">  
+    DELETE FROM bu_news WHERE 
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="type != null" >
+  	 		   and    TYPE  = #{type}  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 		   and    FULLNAME  = #{fullname}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="img != null" >
+  	 		   and    IMG  = #{img}  
+  	  	</if>
+  	  	<if test="readnum != null" >
+  	 		   and    READNUM  = #{readnum}  
+  	  	</if>
+  	  	<if test="praise != null" >
+  	 		   and    PRAISE  = #{praise}  
+  	  	</if>
+  	  	<if test="remark != null" >
+  	 		   and    REMARK  = #{remark}  
+  	  	</if>
+  	  	<if test="fx != null" >
+  	 		   and    FX  = #{fx}  
+  	  	</if>
+  	  	<if test="fy != null" >
+  	 		   and    FY  = #{fy}  
+  	  	</if>
+  	  	<if test="comment != null" >
+  	 		   and    COMMENT  = #{comment}  
+  	  	</if>
+  	  	<if test="sort != null" >
+  	 		   and    SORT  = #{sort}  
+  	  	</if>
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  bu_news WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+  <!--   之上为公共方法，不允许修改 -->
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from bu_news where 
+     #{0}   LIKE concat(cancat('%',#{1}),'%')
+	
+	</select>
+</mapper>

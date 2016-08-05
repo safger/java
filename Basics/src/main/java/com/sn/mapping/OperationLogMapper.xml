@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.OperationLogMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.OperationLog" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="userid" column="USERID"  jdbcType="VARCHAR" />
+        <result property="username" column="USERNAME"  jdbcType="VARCHAR" />
+        <result property="realname" column="REALNAME"  jdbcType="VARCHAR" />
+        <result property="description" column="DESCRIPTION"  jdbcType="VARCHAR" />
+        <result property="operating" column="OPERATING"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         USERID ,
+         USERNAME ,
+         REALNAME ,
+         DESCRIPTION ,
+         OPERATING ,
+         CREATEDATE 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from base_operation_log
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_operation_log
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.OperationLog" >
+    
+         insert into base_operation_log ( 
+         		FUID , 
+         	          		USERID , 
+         	          		USERNAME , 
+         	          		REALNAME , 
+         	          		DESCRIPTION , 
+         	          		OPERATING , 
+         	          		CREATEDATE  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{userid,jdbcType=VARCHAR} , 
+   	 	   	 		#{username,jdbcType=VARCHAR} , 
+   	 	   	 		#{realname,jdbcType=VARCHAR} , 
+   	 	   	 		#{description,jdbcType=VARCHAR} , 
+   	 	   	 		#{operating,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.OperationLog">
+  	  insert into  base_operation_log
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="userid != null" >
+  	 	  USERID ,  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 	  USERNAME ,  
+  	  	</if>
+  	  	<if test="realname != null" >
+  	 	  REALNAME ,  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 	  DESCRIPTION ,  
+  	  	</if>
+  	  	<if test="operating != null" >
+  	 	  OPERATING ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="userid != null" >
+        	#{userid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="username != null" >
+        	#{username,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="realname != null" >
+        	#{realname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="description != null" >
+        	#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="operating != null" >
+        	#{operating,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.OperationLog" >
+    update  base_operation_log
+    <set >
+    	<if test="userid != null" >
+        	  USERID=#{userid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="username != null" >
+        	  USERNAME=#{username,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="realname != null" >
+        	  REALNAME=#{realname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="description != null" >
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="operating != null" >
+        	  OPERATING=#{operating,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.OperationLog" >
+    update base_operation_log
+    set 
+        	  USERID=#{userid,jdbcType=VARCHAR} , 
+        	  USERNAME=#{username,jdbcType=VARCHAR} , 
+        	  REALNAME=#{realname,jdbcType=VARCHAR} , 
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+        	  OPERATING=#{operating,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.OperationLog" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_operation_log
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="userid != null" >
+  	 		   and    USERID  = #{userid}  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 		   and    USERNAME  = #{username}  
+  	  	</if>
+  	  	<if test="realname != null" >
+  	 		   and    REALNAME  = #{realname}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="operating != null" >
+  	 		   and    OPERATING  = #{operating}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.OperationLog">  
+    DELETE FROM base_operation_log WHERE 
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="userid != null" >
+  	 		   and    USERID  = #{userid}  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 		   and    USERNAME  = #{username}  
+  	  	</if>
+  	  	<if test="realname != null" >
+  	 		   and    REALNAME  = #{realname}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="operating != null" >
+  	 		   and    OPERATING  = #{operating}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  base_operation_log WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.OperationLog" >
+select count(*) from base_operation_log
+</select>
+  <!--   之上为公共方法，不允许修改 -->
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from base_operation_log where 
+     #{0}   LIKE cancat('%',#{1},'%')
+	
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.OperationLog" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_operation_log
+      <where>  
+			<if test=" username != null" >
+  	 		    username    LIKE CONCAT('','${username}','%' )   
+  	  		</if>
+  	  	</where>
+	</select>
+	
+</mapper>

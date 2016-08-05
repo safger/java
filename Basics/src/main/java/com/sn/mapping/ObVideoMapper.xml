@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.ObVideoMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.ObVideo" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="fullname" column="FULLNAME"  jdbcType="VARCHAR" />
+        <result property="description" column="DESCRIPTION"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="TIMESTAMP" />
+        <result property="modifyuserrealname" column="MODIFYUSERREALNAME"  jdbcType="VARCHAR" />
+        <result property="camid" column="CAMID"  jdbcType="VARCHAR" />
+        <result property="ip" column="IP"  jdbcType="VARCHAR" />
+        <result property="port" column="PORT"  jdbcType="VARCHAR" />
+        <result property="username" column="USERNAME"  jdbcType="VARCHAR" />
+        <result property="password" column="PASSWORD"  jdbcType="VARCHAR" />
+        <result property="channel" column="CHANNEL"  jdbcType="VARCHAR" />
+        <result property="devtype" column="DEVTYPE"  jdbcType="VARCHAR" />
+        <result property="devid" column="DEVID"  jdbcType="VARCHAR" />
+        <result property="realtype" column="REALTYPE"  jdbcType="DECIMAL" />
+        <result property="sreamip" column="SREAMIP"  jdbcType="VARCHAR" />
+        <result property="streamport" column="STREAMPORT"  jdbcType="VARCHAR" />
+        <result property="proxyip" column="PROXYIP"  jdbcType="VARCHAR" />
+        <result property="proxyport" column="PROXYPORT"  jdbcType="VARCHAR" />
+        <result property="accessip" column="ACCESSIP"  jdbcType="VARCHAR" />
+        <result property="accessport" column="ACCESSPORT"  jdbcType="VARCHAR" />
+        <result property="fx" column="FX"  jdbcType="DECIMAL" />
+        <result property="fy" column="FY"  jdbcType="DECIMAL" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         FULLNAME ,
+         DESCRIPTION ,
+         CREATEDATE ,
+         MODIFYDATE ,
+         MODIFYUSERREALNAME ,
+         CAMID ,
+         IP ,
+         PORT ,
+         USERNAME ,
+         PASSWORD ,
+         CHANNEL ,
+         DEVTYPE ,
+         DEVID ,
+         REALTYPE ,
+         SREAMIP ,
+         STREAMPORT ,
+         PROXYIP ,
+         PROXYPORT ,
+         ACCESSIP ,
+         ACCESSPORT ,
+         FX ,
+         FY 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from ob_video
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ob_video
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.ObVideo" >
+    
+         insert into ob_video ( 
+         		FUID , 
+         	          		FULLNAME , 
+         	          		DESCRIPTION , 
+         	          		CREATEDATE , 
+         	          		MODIFYDATE , 
+         	          		MODIFYUSERREALNAME , 
+         	          		CAMID , 
+         	          		IP , 
+         	          		PORT , 
+         	          		USERNAME , 
+         	          		PASSWORD , 
+         	          		CHANNEL , 
+         	          		DEVTYPE , 
+         	          		DEVID , 
+         	          		REALTYPE , 
+         	          		SREAMIP , 
+         	          		STREAMPORT , 
+         	          		PROXYIP , 
+         	          		PROXYPORT , 
+         	          		ACCESSIP , 
+         	          		ACCESSPORT , 
+         	          		FX , 
+         	          		FY  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{fullname,jdbcType=VARCHAR} , 
+   	 	   	 		#{description,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{modifydate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{modifyuserrealname,jdbcType=VARCHAR} , 
+   	 	   	 		#{camid,jdbcType=VARCHAR} , 
+   	 	   	 		#{ip,jdbcType=VARCHAR} , 
+   	 	   	 		#{port,jdbcType=VARCHAR} , 
+   	 	   	 		#{username,jdbcType=VARCHAR} , 
+   	 	   	 		#{password,jdbcType=VARCHAR} , 
+   	 	   	 		#{channel,jdbcType=VARCHAR} , 
+   	 	   	 		#{devtype,jdbcType=VARCHAR} , 
+   	 	   	 		#{devid,jdbcType=VARCHAR} , 
+   	 	   	 		#{realtype,jdbcType=DECIMAL} , 
+   	 	   	 		#{sreamip,jdbcType=VARCHAR} , 
+   	 	   	 		#{streamport,jdbcType=VARCHAR} , 
+   	 	   	 		#{proxyip,jdbcType=VARCHAR} , 
+   	 	   	 		#{proxyport,jdbcType=VARCHAR} , 
+   	 	   	 		#{accessip,jdbcType=VARCHAR} , 
+   	 	   	 		#{accessport,jdbcType=VARCHAR} , 
+   	 	   	 		#{fx,jdbcType=DECIMAL} , 
+   	 	   	 		#{fy,jdbcType=DECIMAL}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.ObVideo">
+  	  insert into  ob_video
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 	  FULLNAME ,  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 	  DESCRIPTION ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 	  MODIFYUSERREALNAME ,  
+  	  	</if>
+  	  	<if test="camid != null" >
+  	 	  CAMID ,  
+  	  	</if>
+  	  	<if test="ip != null" >
+  	 	  IP ,  
+  	  	</if>
+  	  	<if test="port != null" >
+  	 	  PORT ,  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 	  USERNAME ,  
+  	  	</if>
+  	  	<if test="password != null" >
+  	 	  PASSWORD ,  
+  	  	</if>
+  	  	<if test="channel != null" >
+  	 	  CHANNEL ,  
+  	  	</if>
+  	  	<if test="devtype != null" >
+  	 	  DEVTYPE ,  
+  	  	</if>
+  	  	<if test="devid != null" >
+  	 	  DEVID ,  
+  	  	</if>
+  	  	<if test="realtype != null" >
+  	 	  REALTYPE ,  
+  	  	</if>
+  	  	<if test="sreamip != null" >
+  	 	  SREAMIP ,  
+  	  	</if>
+  	  	<if test="streamport != null" >
+  	 	  STREAMPORT ,  
+  	  	</if>
+  	  	<if test="proxyip != null" >
+  	 	  PROXYIP ,  
+  	  	</if>
+  	  	<if test="proxyport != null" >
+  	 	  PROXYPORT ,  
+  	  	</if>
+  	  	<if test="accessip != null" >
+  	 	  ACCESSIP ,  
+  	  	</if>
+  	  	<if test="accessport != null" >
+  	 	  ACCESSPORT ,  
+  	  	</if>
+  	  	<if test="fx != null" >
+  	 	  FX ,  
+  	  	</if>
+  	  	<if test="fy != null" >
+  	 	  FY   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fullname != null" >
+        	#{fullname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="description != null" >
+        	#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifyuserrealname != null" >
+        	#{modifyuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="camid != null" >
+        	#{camid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ip != null" >
+        	#{ip,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="port != null" >
+        	#{port,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="username != null" >
+        	#{username,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="password != null" >
+        	#{password,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="channel != null" >
+        	#{channel,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="devtype != null" >
+        	#{devtype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="devid != null" >
+        	#{devid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="realtype != null" >
+        	#{realtype,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="sreamip != null" >
+        	#{sreamip,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="streamport != null" >
+        	#{streamport,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="proxyip != null" >
+        	#{proxyip,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="proxyport != null" >
+        	#{proxyport,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="accessip != null" >
+        	#{accessip,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="accessport != null" >
+        	#{accessport,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fx != null" >
+        	#{fx,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="fy != null" >
+        	#{fy,jdbcType=DECIMAL}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.ObVideo" >
+    update  ob_video
+    <set >
+    	<if test="fullname != null" >
+        	  FULLNAME=#{fullname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="description != null" >
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifyuserrealname != null" >
+        	  MODIFYUSERREALNAME=#{modifyuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="camid != null" >
+        	  CAMID=#{camid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ip != null" >
+        	  IP=#{ip,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="port != null" >
+        	  PORT=#{port,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="username != null" >
+        	  USERNAME=#{username,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="password != null" >
+        	  PASSWORD=#{password,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="channel != null" >
+        	  CHANNEL=#{channel,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="devtype != null" >
+        	  DEVTYPE=#{devtype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="devid != null" >
+        	  DEVID=#{devid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="realtype != null" >
+        	  REALTYPE=#{realtype,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="sreamip != null" >
+        	  SREAMIP=#{sreamip,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="streamport != null" >
+        	  STREAMPORT=#{streamport,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="proxyip != null" >
+        	  PROXYIP=#{proxyip,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="proxyport != null" >
+        	  PROXYPORT=#{proxyport,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="accessip != null" >
+        	  ACCESSIP=#{accessip,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="accessport != null" >
+        	  ACCESSPORT=#{accessport,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fx != null" >
+        	  FX=#{fx,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="fy != null" >
+        	  FY=#{fy,jdbcType=DECIMAL}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.ObVideo" >
+    update ob_video
+    set 
+        	  FULLNAME=#{fullname,jdbcType=VARCHAR} , 
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+        	  MODIFYUSERREALNAME=#{modifyuserrealname,jdbcType=VARCHAR} , 
+        	  CAMID=#{camid,jdbcType=VARCHAR} , 
+        	  IP=#{ip,jdbcType=VARCHAR} , 
+        	  PORT=#{port,jdbcType=VARCHAR} , 
+        	  USERNAME=#{username,jdbcType=VARCHAR} , 
+        	  PASSWORD=#{password,jdbcType=VARCHAR} , 
+        	  CHANNEL=#{channel,jdbcType=VARCHAR} , 
+        	  DEVTYPE=#{devtype,jdbcType=VARCHAR} , 
+        	  DEVID=#{devid,jdbcType=VARCHAR} , 
+        	  REALTYPE=#{realtype,jdbcType=DECIMAL} , 
+        	  SREAMIP=#{sreamip,jdbcType=VARCHAR} , 
+        	  STREAMPORT=#{streamport,jdbcType=VARCHAR} , 
+        	  PROXYIP=#{proxyip,jdbcType=VARCHAR} , 
+        	  PROXYPORT=#{proxyport,jdbcType=VARCHAR} , 
+        	  ACCESSIP=#{accessip,jdbcType=VARCHAR} , 
+        	  ACCESSPORT=#{accessport,jdbcType=VARCHAR} , 
+        	  FX=#{fx,jdbcType=DECIMAL} , 
+        	  FY=#{fy,jdbcType=DECIMAL}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.ObVideo" >
+    select 
+    <include refid="Base_Column_List" />
+    from ob_video
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 		   and    FULLNAME  = #{fullname}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+  	  	<if test="camid != null" >
+  	 		   and    CAMID  = #{camid}  
+  	  	</if>
+  	  	<if test="ip != null" >
+  	 		   and    IP  = #{ip}  
+  	  	</if>
+  	  	<if test="port != null" >
+  	 		   and    PORT  = #{port}  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 		   and    USERNAME  = #{username}  
+  	  	</if>
+  	  	<if test="password != null" >
+  	 		   and    PASSWORD  = #{password}  
+  	  	</if>
+  	  	<if test="channel != null" >
+  	 		   and    CHANNEL  = #{channel}  
+  	  	</if>
+  	  	<if test="devtype != null" >
+  	 		   and    DEVTYPE  = #{devtype}  
+  	  	</if>
+  	  	<if test="devid != null" >
+  	 		   and    DEVID  = #{devid}  
+  	  	</if>
+  	  	<if test="realtype != null" >
+  	 		   and    REALTYPE  = #{realtype}  
+  	  	</if>
+  	  	<if test="sreamip != null" >
+  	 		   and    SREAMIP  = #{sreamip}  
+  	  	</if>
+  	  	<if test="streamport != null" >
+  	 		   and    STREAMPORT  = #{streamport}  
+  	  	</if>
+  	  	<if test="proxyip != null" >
+  	 		   and    PROXYIP  = #{proxyip}  
+  	  	</if>
+  	  	<if test="proxyport != null" >
+  	 		   and    PROXYPORT  = #{proxyport}  
+  	  	</if>
+  	  	<if test="accessip != null" >
+  	 		   and    ACCESSIP  = #{accessip}  
+  	  	</if>
+  	  	<if test="accessport != null" >
+  	 		   and    ACCESSPORT  = #{accessport}  
+  	  	</if>
+  	  	<if test="fx != null" >
+  	 		   and    FX  = #{fx}  
+  	  	</if>
+  	  	<if test="fy != null" >
+  	 		   and    FY  = #{fy}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.ObVideo">  
+    DELETE FROM ob_video WHERE 
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 		   and    FULLNAME  = #{fullname}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+  	  	<if test="camid != null" >
+  	 		   and    CAMID  = #{camid}  
+  	  	</if>
+  	  	<if test="ip != null" >
+  	 		   and    IP  = #{ip}  
+  	  	</if>
+  	  	<if test="port != null" >
+  	 		   and    PORT  = #{port}  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 		   and    USERNAME  = #{username}  
+  	  	</if>
+  	  	<if test="password != null" >
+  	 		   and    PASSWORD  = #{password}  
+  	  	</if>
+  	  	<if test="channel != null" >
+  	 		   and    CHANNEL  = #{channel}  
+  	  	</if>
+  	  	<if test="devtype != null" >
+  	 		   and    DEVTYPE  = #{devtype}  
+  	  	</if>
+  	  	<if test="devid != null" >
+  	 		   and    DEVID  = #{devid}  
+  	  	</if>
+  	  	<if test="realtype != null" >
+  	 		   and    REALTYPE  = #{realtype}  
+  	  	</if>
+  	  	<if test="sreamip != null" >
+  	 		   and    SREAMIP  = #{sreamip}  
+  	  	</if>
+  	  	<if test="streamport != null" >
+  	 		   and    STREAMPORT  = #{streamport}  
+  	  	</if>
+  	  	<if test="proxyip != null" >
+  	 		   and    PROXYIP  = #{proxyip}  
+  	  	</if>
+  	  	<if test="proxyport != null" >
+  	 		   and    PROXYPORT  = #{proxyport}  
+  	  	</if>
+  	  	<if test="accessip != null" >
+  	 		   and    ACCESSIP  = #{accessip}  
+  	  	</if>
+  	  	<if test="accessport != null" >
+  	 		   and    ACCESSPORT  = #{accessport}  
+  	  	</if>
+  	  	<if test="fx != null" >
+  	 		   and    FX  = #{fx}  
+  	  	</if>
+  	  	<if test="fy != null" >
+  	 		   and    FY  = #{fy}  
+  	  	</if>
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  ob_video WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+  <!--   之上为公共方法，不允许修改 -->
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from ob_video where 
+     #{0}   LIKE concat(cancat('%',#{1}),'%')
+	
+	</select>
+</mapper>

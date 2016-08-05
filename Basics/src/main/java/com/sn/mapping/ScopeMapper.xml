@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.ScopeMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Scope" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="menuId" column="MENU_ID"  jdbcType="VARCHAR" />
+        <result property="roleId" column="ROLE_ID"  jdbcType="VARCHAR" />
+        <result property="organizeId" column="ORGANIZE_ID"  jdbcType="VARCHAR" />
+        <result property="enabled" column="ENABLED"  jdbcType="INTEGER" />
+        <result property="deletemark" column="DELETEMARK"  jdbcType="INTEGER" />
+        <result property="description" column="DESCRIPTION"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="createuserrealname" column="CREATEUSERREALNAME"  jdbcType="VARCHAR" />
+        <result property="createuserid" column="CREATEUSERID"  jdbcType="VARCHAR" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="TIMESTAMP" />
+        <result property="modifyuserrealname" column="MODIFYUSERREALNAME"  jdbcType="VARCHAR" />
+        <result property="modifyuserid" column="MODIFYUSERID"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         MENU_ID ,
+         ROLE_ID ,
+         ORGANIZE_ID ,
+         ENABLED ,
+         DELETEMARK ,
+         DESCRIPTION ,
+         CREATEDATE ,
+         CREATEUSERREALNAME ,
+         CREATEUSERID ,
+         MODIFYDATE ,
+         MODIFYUSERREALNAME ,
+         MODIFYUSERID 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from base_scope
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_scope
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Scope" >
+    
+         insert into base_scope ( 
+         		FUID , 
+         	          		MENU_ID , 
+         	          		ROLE_ID , 
+         	          		ORGANIZE_ID , 
+         	          		ENABLED , 
+         	          		DELETEMARK , 
+         	          		DESCRIPTION , 
+         	          		CREATEDATE , 
+         	          		CREATEUSERREALNAME , 
+         	          		CREATEUSERID , 
+         	          		MODIFYDATE , 
+         	          		MODIFYUSERREALNAME , 
+         	          		MODIFYUSERID  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{menuId,jdbcType=VARCHAR} , 
+   	 	   	 		#{roleId,jdbcType=VARCHAR} , 
+   	 	   	 		#{organizeId,jdbcType=VARCHAR} , 
+   	 	   	 		#{enabled,jdbcType=INTEGER} , 
+   	 	   	 		#{deletemark,jdbcType=INTEGER} , 
+   	 	   	 		#{description,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{createuserrealname,jdbcType=VARCHAR} , 
+   	 	   	 		#{createuserid,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifydate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{modifyuserrealname,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifyuserid,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Scope">
+  	  insert into  base_scope
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="menuId != null" >
+  	 	  MENU_ID ,  
+  	  	</if>
+  	  	<if test="roleId != null" >
+  	 	  ROLE_ID ,  
+  	  	</if>
+  	  	<if test="organizeId != null" >
+  	 	  ORGANIZE_ID ,  
+  	  	</if>
+  	  	<if test="enabled != null" >
+  	 	  ENABLED ,  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 	  DELETEMARK ,  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 	  DESCRIPTION ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 	  CREATEUSERREALNAME ,  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 	  CREATEUSERID ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 	  MODIFYUSERREALNAME ,  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 	  MODIFYUSERID   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="menuId != null" >
+        	#{menuId,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="roleId != null" >
+        	#{roleId,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="organizeId != null" >
+        	#{organizeId,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="enabled != null" >
+        	#{enabled,jdbcType=INTEGER} , 
+       </if>
+    	<if test="deletemark != null" >
+        	#{deletemark,jdbcType=INTEGER} , 
+       </if>
+    	<if test="description != null" >
+        	#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="createuserrealname != null" >
+        	#{createuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createuserid != null" >
+        	#{createuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifyuserrealname != null" >
+        	#{modifyuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifyuserid != null" >
+        	#{modifyuserid,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Scope" >
+    update  base_scope
+    <set >
+    	<if test="menuId != null" >
+        	  MENU_ID=#{menuId,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="roleId != null" >
+        	  ROLE_ID=#{roleId,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="organizeId != null" >
+        	  ORGANIZE_ID=#{organizeId,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="enabled != null" >
+        	  ENABLED=#{enabled,jdbcType=INTEGER} , 
+       </if>
+    	<if test="deletemark != null" >
+        	  DELETEMARK=#{deletemark,jdbcType=INTEGER} , 
+       </if>
+    	<if test="description != null" >
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="createuserrealname != null" >
+        	  CREATEUSERREALNAME=#{createuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createuserid != null" >
+        	  CREATEUSERID=#{createuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifyuserrealname != null" >
+        	  MODIFYUSERREALNAME=#{modifyuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifyuserid != null" >
+        	  MODIFYUSERID=#{modifyuserid,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Scope" >
+    update base_scope
+    set 
+        	  MENU_ID=#{menuId,jdbcType=VARCHAR} , 
+        	  ROLE_ID=#{roleId,jdbcType=VARCHAR} , 
+        	  ORGANIZE_ID=#{organizeId,jdbcType=VARCHAR} , 
+        	  ENABLED=#{enabled,jdbcType=INTEGER} , 
+        	  DELETEMARK=#{deletemark,jdbcType=INTEGER} , 
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  CREATEUSERREALNAME=#{createuserrealname,jdbcType=VARCHAR} , 
+        	  CREATEUSERID=#{createuserid,jdbcType=VARCHAR} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+        	  MODIFYUSERREALNAME=#{modifyuserrealname,jdbcType=VARCHAR} , 
+        	  MODIFYUSERID=#{modifyuserid,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Scope" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_scope
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="menuId != null" >
+  	 		   and    MENU_ID  = #{menuId}  
+  	  	</if>
+  	  	<if test="roleId != null" >
+  	 		   and    ROLE_ID  = #{roleId}  
+  	  	</if>
+  	  	<if test="organizeId != null" >
+  	 		   and    ORGANIZE_ID  = #{organizeId}  
+  	  	</if>
+  	  	<if test="enabled != null" >
+  	 		   and    ENABLED  = #{enabled}  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 		   and    DELETEMARK  = #{deletemark}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 		   and    CREATEUSERREALNAME  = #{createuserrealname}  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 		   and    CREATEUSERID  = #{createuserid}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 		   and    MODIFYUSERID  = #{modifyuserid}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Scope">  
+    DELETE FROM base_scope  
+    <where>
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="menuId != null" >
+  	 		   and    MENU_ID  = #{menuId}  
+  	  	</if>
+  	  	<if test="roleId != null" >
+  	 		   and    ROLE_ID  = #{roleId}  
+  	  	</if>
+  	  	<if test="organizeId != null" >
+  	 		   and    ORGANIZE_ID  = #{organizeId}  
+  	  	</if>
+  	  	<if test="enabled != null" >
+  	 		   and    ENABLED  = #{enabled}  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 		   and    DELETEMARK  = #{deletemark}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 		   and    CREATEUSERREALNAME  = #{createuserrealname}  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 		   and    CREATEUSERID  = #{createuserid}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 		   and    MODIFYUSERID  = #{modifyuserid}  
+  	  	</if>
+  	  	</where>
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  base_scope WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+  <!--   之上为公共方法，不允许修改 -->
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from base_scope where 
+     #{0}   LIKE concat(cancat('%',#{1}),'%')
+	
+	</select>
+	  <select  id="selectScope"  resultMap="BaseResultMap"   >
+		select m.menu_url as menu_id ,s.* from base_scope  s left join base_menu m on s.menu_id=m.fuid
+	
+	</select>
+	
+</mapper>

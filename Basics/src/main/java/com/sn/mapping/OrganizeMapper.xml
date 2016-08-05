@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.OrganizeMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Organize" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="parentid" column="PARENTID"  jdbcType="VARCHAR" />
+        <result property="code" column="CODE"  jdbcType="VARCHAR" />
+        <result property="fullname" column="FULLNAME"  jdbcType="VARCHAR" />
+        <result property="layer" column="LAYER"  jdbcType="INTEGER" />
+        <result property="outerphone" column="OUTERPHONE"  jdbcType="VARCHAR" />
+        <result property="innerphone" column="INNERPHONE"  jdbcType="VARCHAR" />
+        <result property="manager" column="MANAGER"  jdbcType="VARCHAR" />
+        <result property="deletemark" column="DELETEMARK"  jdbcType="INTEGER" />
+        <result property="enabled" column="ENABLED"  jdbcType="INTEGER" />
+        <result property="sortcode" column="SORTCODE"  jdbcType="INTEGER" />
+        <result property="description" column="DESCRIPTION"  jdbcType="VARCHAR" />
+        <result property="address" column="ADDRESS"  jdbcType="VARCHAR" />
+        <result property="businesslicense" column="BUSINESSLICENSE"  jdbcType="VARCHAR" />
+        <result property="managerid" column="MANAGERID"  jdbcType="VARCHAR" />
+        <result property="possonoapplicare" column="POSSONOAPPLICARE"  jdbcType="VARCHAR" />
+        <result property="registeredcapital" column="REGISTEREDCAPITAL"  jdbcType="DECIMAL" />
+        <result property="contact" column="CONTACT"  jdbcType="VARCHAR" />
+        <result property="email" column="EMAIL"  jdbcType="VARCHAR" />
+        <result property="fax" column="FAX"  jdbcType="VARCHAR" />
+        <result property="operatingarea" column="OPERATINGAREA"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="createuserid" column="CREATEUSERID"  jdbcType="VARCHAR" />
+        <result property="createuserrealname" column="CREATEUSERREALNAME"  jdbcType="VARCHAR" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="TIMESTAMP" />
+        <result property="modifyuserid" column="MODIFYUSERID"  jdbcType="VARCHAR" />
+        <result property="modifyuserrealname" column="MODIFYUSERREALNAME"  jdbcType="VARCHAR" />
+        <result property="iscargo" column="ISCARGO"  jdbcType="VARCHAR" />
+        <result property="emergency" column="EMERGENCY"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         PARENTID ,
+         CODE ,
+         FULLNAME ,
+         LAYER ,
+         OUTERPHONE ,
+         INNERPHONE ,
+         MANAGER ,
+         DELETEMARK ,
+         ENABLED ,
+         SORTCODE ,
+         DESCRIPTION ,
+         ADDRESS ,
+         BUSINESSLICENSE ,
+         MANAGERID ,
+         POSSONOAPPLICARE ,
+         REGISTEREDCAPITAL ,
+         CONTACT ,
+         EMAIL ,
+         FAX ,
+         OPERATINGAREA ,
+         CREATEDATE ,
+         CREATEUSERID ,
+         CREATEUSERREALNAME ,
+         MODIFYDATE ,
+         MODIFYUSERID ,
+         MODIFYUSERREALNAME ,
+         ISCARGO ,
+         EMERGENCY 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from base_organize
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_organize
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Organize" >
+    
+         insert into base_organize ( 
+         		FUID , 
+         	          		PARENTID , 
+         	          		CODE , 
+         	          		FULLNAME , 
+         	          		LAYER , 
+         	          		OUTERPHONE , 
+         	          		INNERPHONE , 
+         	          		MANAGER , 
+         	          		DELETEMARK , 
+         	          		ENABLED , 
+         	          		SORTCODE , 
+         	          		DESCRIPTION , 
+         	          		ADDRESS , 
+         	          		BUSINESSLICENSE , 
+         	          		MANAGERID , 
+         	          		POSSONOAPPLICARE , 
+         	          		REGISTEREDCAPITAL , 
+         	          		CONTACT , 
+         	          		EMAIL , 
+         	          		FAX , 
+         	          		OPERATINGAREA , 
+         	          		CREATEDATE , 
+         	          		CREATEUSERID , 
+         	          		CREATEUSERREALNAME , 
+         	          		MODIFYDATE , 
+         	          		MODIFYUSERID , 
+         	          		MODIFYUSERREALNAME , 
+         	          		ISCARGO , 
+         	          		EMERGENCY  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{parentid,jdbcType=VARCHAR} , 
+   	 	   	 		#{code,jdbcType=VARCHAR} , 
+   	 	   	 		#{fullname,jdbcType=VARCHAR} , 
+   	 	   	 		#{layer,jdbcType=INTEGER} , 
+   	 	   	 		#{outerphone,jdbcType=VARCHAR} , 
+   	 	   	 		#{innerphone,jdbcType=VARCHAR} , 
+   	 	   	 		#{manager,jdbcType=VARCHAR} , 
+   	 	   	 		#{deletemark,jdbcType=INTEGER} , 
+   	 	   	 		#{enabled,jdbcType=INTEGER} , 
+   	 	   	 		#{sortcode,jdbcType=INTEGER} , 
+   	 	   	 		#{description,jdbcType=VARCHAR} , 
+   	 	   	 		#{address,jdbcType=VARCHAR} , 
+   	 	   	 		#{businesslicense,jdbcType=VARCHAR} , 
+   	 	   	 		#{managerid,jdbcType=VARCHAR} , 
+   	 	   	 		#{possonoapplicare,jdbcType=VARCHAR} , 
+   	 	   	 		#{registeredcapital,jdbcType=DECIMAL} , 
+   	 	   	 		#{contact,jdbcType=VARCHAR} , 
+   	 	   	 		#{email,jdbcType=VARCHAR} , 
+   	 	   	 		#{fax,jdbcType=VARCHAR} , 
+   	 	   	 		#{operatingarea,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{createuserid,jdbcType=VARCHAR} , 
+   	 	   	 		#{createuserrealname,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifydate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{modifyuserid,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifyuserrealname,jdbcType=VARCHAR} , 
+   	 	   	 		#{iscargo,jdbcType=VARCHAR} , 
+   	 	   	 		#{emergency,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Organize">
+  	  insert into  base_organize
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="parentid != null" >
+  	 	  PARENTID ,  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 	  CODE ,  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 	  FULLNAME ,  
+  	  	</if>
+  	  	<if test="layer != null" >
+  	 	  LAYER ,  
+  	  	</if>
+  	  	<if test="outerphone != null" >
+  	 	  OUTERPHONE ,  
+  	  	</if>
+  	  	<if test="innerphone != null" >
+  	 	  INNERPHONE ,  
+  	  	</if>
+  	  	<if test="manager != null" >
+  	 	  MANAGER ,  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 	  DELETEMARK ,  
+  	  	</if>
+  	  	<if test="enabled != null" >
+  	 	  ENABLED ,  
+  	  	</if>
+  	  	<if test="sortcode != null" >
+  	 	  SORTCODE ,  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 	  DESCRIPTION ,  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 	  ADDRESS ,  
+  	  	</if>
+  	  	<if test="businesslicense != null" >
+  	 	  BUSINESSLICENSE ,  
+  	  	</if>
+  	  	<if test="managerid != null" >
+  	 	  MANAGERID ,  
+  	  	</if>
+  	  	<if test="possonoapplicare != null" >
+  	 	  POSSONOAPPLICARE ,  
+  	  	</if>
+  	  	<if test="registeredcapital != null" >
+  	 	  REGISTEREDCAPITAL ,  
+  	  	</if>
+  	  	<if test="contact != null" >
+  	 	  CONTACT ,  
+  	  	</if>
+  	  	<if test="email != null" >
+  	 	  EMAIL ,  
+  	  	</if>
+  	  	<if test="fax != null" >
+  	 	  FAX ,  
+  	  	</if>
+  	  	<if test="operatingarea != null" >
+  	 	  OPERATINGAREA ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 	  CREATEUSERID ,  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 	  CREATEUSERREALNAME ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 	  MODIFYUSERID ,  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 	  MODIFYUSERREALNAME ,  
+  	  	</if>
+  	  	<if test="iscargo != null" >
+  	 	  ISCARGO ,  
+  	  	</if>
+  	  	<if test="emergency != null" >
+  	 	  EMERGENCY   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="parentid != null" >
+        	#{parentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="code != null" >
+        	#{code,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fullname != null" >
+        	#{fullname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="layer != null" >
+        	#{layer,jdbcType=INTEGER} , 
+       </if>
+    	<if test="outerphone != null" >
+        	#{outerphone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="innerphone != null" >
+        	#{innerphone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="manager != null" >
+        	#{manager,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="deletemark != null" >
+        	#{deletemark,jdbcType=INTEGER} , 
+       </if>
+    	<if test="enabled != null" >
+        	#{enabled,jdbcType=INTEGER} , 
+       </if>
+    	<if test="sortcode != null" >
+        	#{sortcode,jdbcType=INTEGER} , 
+       </if>
+    	<if test="description != null" >
+        	#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="address != null" >
+        	#{address,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="businesslicense != null" >
+        	#{businesslicense,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="managerid != null" >
+        	#{managerid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="possonoapplicare != null" >
+        	#{possonoapplicare,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="registeredcapital != null" >
+        	#{registeredcapital,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="contact != null" >
+        	#{contact,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="email != null" >
+        	#{email,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fax != null" >
+        	#{fax,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="operatingarea != null" >
+        	#{operatingarea,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="createuserid != null" >
+        	#{createuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createuserrealname != null" >
+        	#{createuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifyuserid != null" >
+        	#{modifyuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifyuserrealname != null" >
+        	#{modifyuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="iscargo != null" >
+        	#{iscargo,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="emergency != null" >
+        	#{emergency,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Organize" >
+    update  base_organize
+    <set >
+    	<if test="parentid != null" >
+        	  PARENTID=#{parentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="code != null" >
+        	  CODE=#{code,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fullname != null" >
+        	  FULLNAME=#{fullname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="layer != null" >
+        	  LAYER=#{layer,jdbcType=INTEGER} , 
+       </if>
+    	<if test="outerphone != null" >
+        	  OUTERPHONE=#{outerphone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="innerphone != null" >
+        	  INNERPHONE=#{innerphone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="manager != null" >
+        	  MANAGER=#{manager,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="deletemark != null" >
+        	  DELETEMARK=#{deletemark,jdbcType=INTEGER} , 
+       </if>
+    	<if test="enabled != null" >
+        	  ENABLED=#{enabled,jdbcType=INTEGER} , 
+       </if>
+    	<if test="sortcode != null" >
+        	  SORTCODE=#{sortcode,jdbcType=INTEGER} , 
+       </if>
+    	<if test="description != null" >
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="address != null" >
+        	  ADDRESS=#{address,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="businesslicense != null" >
+        	  BUSINESSLICENSE=#{businesslicense,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="managerid != null" >
+        	  MANAGERID=#{managerid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="possonoapplicare != null" >
+        	  POSSONOAPPLICARE=#{possonoapplicare,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="registeredcapital != null" >
+        	  REGISTEREDCAPITAL=#{registeredcapital,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="contact != null" >
+        	  CONTACT=#{contact,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="email != null" >
+        	  EMAIL=#{email,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fax != null" >
+        	  FAX=#{fax,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="operatingarea != null" >
+        	  OPERATINGAREA=#{operatingarea,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="createuserid != null" >
+        	  CREATEUSERID=#{createuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createuserrealname != null" >
+        	  CREATEUSERREALNAME=#{createuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifyuserid != null" >
+        	  MODIFYUSERID=#{modifyuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifyuserrealname != null" >
+        	  MODIFYUSERREALNAME=#{modifyuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="iscargo != null" >
+        	  ISCARGO=#{iscargo,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="emergency != null" >
+        	  EMERGENCY=#{emergency,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Organize" >
+    update base_organize
+    set 
+        	  PARENTID=#{parentid,jdbcType=VARCHAR} , 
+        	  CODE=#{code,jdbcType=VARCHAR} , 
+        	  FULLNAME=#{fullname,jdbcType=VARCHAR} , 
+        	  LAYER=#{layer,jdbcType=INTEGER} , 
+        	  OUTERPHONE=#{outerphone,jdbcType=VARCHAR} , 
+        	  INNERPHONE=#{innerphone,jdbcType=VARCHAR} , 
+        	  MANAGER=#{manager,jdbcType=VARCHAR} , 
+        	  DELETEMARK=#{deletemark,jdbcType=INTEGER} , 
+        	  ENABLED=#{enabled,jdbcType=INTEGER} , 
+        	  SORTCODE=#{sortcode,jdbcType=INTEGER} , 
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+        	  ADDRESS=#{address,jdbcType=VARCHAR} , 
+        	  BUSINESSLICENSE=#{businesslicense,jdbcType=VARCHAR} , 
+        	  MANAGERID=#{managerid,jdbcType=VARCHAR} , 
+        	  POSSONOAPPLICARE=#{possonoapplicare,jdbcType=VARCHAR} , 
+        	  REGISTEREDCAPITAL=#{registeredcapital,jdbcType=DECIMAL} , 
+        	  CONTACT=#{contact,jdbcType=VARCHAR} , 
+        	  EMAIL=#{email,jdbcType=VARCHAR} , 
+        	  FAX=#{fax,jdbcType=VARCHAR} , 
+        	  OPERATINGAREA=#{operatingarea,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  CREATEUSERID=#{createuserid,jdbcType=VARCHAR} , 
+        	  CREATEUSERREALNAME=#{createuserrealname,jdbcType=VARCHAR} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+        	  MODIFYUSERID=#{modifyuserid,jdbcType=VARCHAR} , 
+        	  MODIFYUSERREALNAME=#{modifyuserrealname,jdbcType=VARCHAR} , 
+        	  ISCARGO=#{iscargo,jdbcType=VARCHAR} , 
+        	  EMERGENCY=#{emergency,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Organize" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_organize
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="parentid != null" >
+  	 		   and    PARENTID  = #{parentid}  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 		   and    CODE  = #{code}  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 		   and    FULLNAME  = #{fullname}  
+  	  	</if>
+  	  	<if test="layer != null" >
+  	 		   and    LAYER  = #{layer}  
+  	  	</if>
+  	  	<if test="outerphone != null" >
+  	 		   and    OUTERPHONE  = #{outerphone}  
+  	  	</if>
+  	  	<if test="innerphone != null" >
+  	 		   and    INNERPHONE  = #{innerphone}  
+  	  	</if>
+  	  	<if test="manager != null" >
+  	 		   and    MANAGER  = #{manager}  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 		   and    DELETEMARK  = #{deletemark}  
+  	  	</if>
+  	  	<if test="enabled != null" >
+  	 		   and    ENABLED  = #{enabled}  
+  	  	</if>
+  	  	<if test="sortcode != null" >
+  	 		   and    SORTCODE  = #{sortcode}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    ADDRESS  = #{address}  
+  	  	</if>
+  	  	<if test="businesslicense != null" >
+  	 		   and    BUSINESSLICENSE  = #{businesslicense}  
+  	  	</if>
+  	  	<if test="managerid != null" >
+  	 		   and    MANAGERID  = #{managerid}  
+  	  	</if>
+  	  	<if test="possonoapplicare != null" >
+  	 		   and    POSSONOAPPLICARE  = #{possonoapplicare}  
+  	  	</if>
+  	  	<if test="registeredcapital != null" >
+  	 		   and    REGISTEREDCAPITAL  = #{registeredcapital}  
+  	  	</if>
+  	  	<if test="contact != null" >
+  	 		   and    CONTACT  = #{contact}  
+  	  	</if>
+  	  	<if test="email != null" >
+  	 		   and    EMAIL  = #{email}  
+  	  	</if>
+  	  	<if test="fax != null" >
+  	 		   and    FAX  = #{fax}  
+  	  	</if>
+  	  	<if test="operatingarea != null" >
+  	 		   and    OPERATINGAREA  = #{operatingarea}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 		   and    CREATEUSERID  = #{createuserid}  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 		   and    CREATEUSERREALNAME  = #{createuserrealname}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 		   and    MODIFYUSERID  = #{modifyuserid}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+  	  	<if test="iscargo != null" >
+  	 		   and    ISCARGO  = #{iscargo}  
+  	  	</if>
+  	  	<if test="emergency != null" >
+  	 		   and    EMERGENCY  = #{emergency}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Organize">  
+    DELETE FROM base_organize   
+    <where>
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="parentid != null" >
+  	 		   and    PARENTID  = #{parentid}  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 		   and    CODE  = #{code}  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 		   and    FULLNAME  = #{fullname}  
+  	  	</if>
+  	  	<if test="layer != null" >
+  	 		   and    LAYER  = #{layer}  
+  	  	</if>
+  	  	<if test="outerphone != null" >
+  	 		   and    OUTERPHONE  = #{outerphone}  
+  	  	</if>
+  	  	<if test="innerphone != null" >
+  	 		   and    INNERPHONE  = #{innerphone}  
+  	  	</if>
+  	  	<if test="manager != null" >
+  	 		   and    MANAGER  = #{manager}  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 		   and    DELETEMARK  = #{deletemark}  
+  	  	</if>
+  	  	<if test="enabled != null" >
+  	 		   and    ENABLED  = #{enabled}  
+  	  	</if>
+  	  	<if test="sortcode != null" >
+  	 		   and    SORTCODE  = #{sortcode}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    ADDRESS  = #{address}  
+  	  	</if>
+  	  	<if test="businesslicense != null" >
+  	 		   and    BUSINESSLICENSE  = #{businesslicense}  
+  	  	</if>
+  	  	<if test="managerid != null" >
+  	 		   and    MANAGERID  = #{managerid}  
+  	  	</if>
+  	  	<if test="possonoapplicare != null" >
+  	 		   and    POSSONOAPPLICARE  = #{possonoapplicare}  
+  	  	</if>
+  	  	<if test="registeredcapital != null" >
+  	 		   and    REGISTEREDCAPITAL  = #{registeredcapital}  
+  	  	</if>
+  	  	<if test="contact != null" >
+  	 		   and    CONTACT  = #{contact}  
+  	  	</if>
+  	  	<if test="email != null" >
+  	 		   and    EMAIL  = #{email}  
+  	  	</if>
+  	  	<if test="fax != null" >
+  	 		   and    FAX  = #{fax}  
+  	  	</if>
+  	  	<if test="operatingarea != null" >
+  	 		   and    OPERATINGAREA  = #{operatingarea}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 		   and    CREATEUSERID  = #{createuserid}  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 		   and    CREATEUSERREALNAME  = #{createuserrealname}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 		   and    MODIFYUSERID  = #{modifyuserid}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+  	  	<if test="iscargo != null" >
+  	 		   and    ISCARGO  = #{iscargo}  
+  	  	</if>
+  	  	<if test="emergency != null" >
+  	 		   and    EMERGENCY  = #{emergency}  
+  	  	</if>
+  	  </where>
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  base_organize WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Organize" >
+select count(*) from base_organize
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="parentid != null" >
+  	 		   and    PARENTID  = #{parentid}  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 		   and    CODE  = #{code}  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 		   and    FULLNAME  = #{fullname}  
+  	  	</if>
+  	  	<if test="layer != null" >
+  	 		   and    LAYER  = #{layer}  
+  	  	</if>
+  	  	<if test="outerphone != null" >
+  	 		   and    OUTERPHONE  = #{outerphone}  
+  	  	</if>
+  	  	<if test="innerphone != null" >
+  	 		   and    INNERPHONE  = #{innerphone}  
+  	  	</if>
+  	  	<if test="manager != null" >
+  	 		   and    MANAGER  = #{manager}  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 		   and    DELETEMARK  = #{deletemark}  
+  	  	</if>
+  	  	<if test="enabled != null" >
+  	 		   and    ENABLED  = #{enabled}  
+  	  	</if>
+  	  	<if test="sortcode != null" >
+  	 		   and    SORTCODE  = #{sortcode}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    ADDRESS  = #{address}  
+  	  	</if>
+  	  	<if test="businesslicense != null" >
+  	 		   and    BUSINESSLICENSE  = #{businesslicense}  
+  	  	</if>
+  	  	<if test="managerid != null" >
+  	 		   and    MANAGERID  = #{managerid}  
+  	  	</if>
+  	  	<if test="possonoapplicare != null" >
+  	 		   and    POSSONOAPPLICARE  = #{possonoapplicare}  
+  	  	</if>
+  	  	<if test="registeredcapital != null" >
+  	 		   and    REGISTEREDCAPITAL  = #{registeredcapital}  
+  	  	</if>
+  	  	<if test="contact != null" >
+  	 		   and    CONTACT  = #{contact}  
+  	  	</if>
+  	  	<if test="email != null" >
+  	 		   and    EMAIL  = #{email}  
+  	  	</if>
+  	  	<if test="fax != null" >
+  	 		   and    FAX  = #{fax}  
+  	  	</if>
+  	  	<if test="operatingarea != null" >
+  	 		   and    OPERATINGAREA  = #{operatingarea}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 		   and    CREATEUSERID  = #{createuserid}  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 		   and    CREATEUSERREALNAME  = #{createuserrealname}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 		   and    MODIFYUSERID  = #{modifyuserid}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+  	  	<if test="iscargo != null" >
+  	 		   and    ISCARGO  = #{iscargo}  
+  	  	</if>
+  	  	<if test="emergency != null" >
+  	 		   and    EMERGENCY  = #{emergency}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll" resultMap="BaseResultMap"  parameterType="com.sn.entity.Organize" >
+select * from base_organize order by #{order}
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from base_organize where 
+     #{0}   LIKE concat(cancat('%',#{1}),'%')
+	
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Organize" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_user
+      <where>  
+		 
+  	  	</where>
+	</select>
+	 <select  id="selectOrg"  resultMap="BaseResultMap"   >
+		select * from Base_Organize where DELETEMARK=0 and  (fuid=#{departmentid}  or layer>#{layer})  order by SortCode
+	</select>
+</mapper>

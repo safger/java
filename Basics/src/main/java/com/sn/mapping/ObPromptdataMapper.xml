@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.ObPromptdataMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.ObPromptdata" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="fullname" column="FULLNAME"  jdbcType="VARCHAR" />
+        <result property="code" column="CODE"  jdbcType="VARCHAR" />
+        <result property="description" column="DESCRIPTION"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         FULLNAME ,
+         CODE ,
+         DESCRIPTION ,
+         CREATEDATE 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from ob_promptdata
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ob_promptdata
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.ObPromptdata" >
+    
+         insert into ob_promptdata ( 
+         		FUID , 
+         	          		FULLNAME , 
+         	          		CODE , 
+         	          		DESCRIPTION , 
+         	          		CREATEDATE  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{fullname,jdbcType=VARCHAR} , 
+   	 	   	 		#{code,jdbcType=VARCHAR} , 
+   	 	   	 		#{description,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.ObPromptdata">
+  	  insert into  ob_promptdata
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 	  FULLNAME ,  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 	  CODE ,  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 	  DESCRIPTION ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fullname != null" >
+        	#{fullname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="code != null" >
+        	#{code,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="description != null" >
+        	#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.ObPromptdata" >
+    update  ob_promptdata
+    <set >
+    	<if test="fullname != null" >
+        	  FULLNAME=#{fullname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="code != null" >
+        	  CODE=#{code,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="description != null" >
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.ObPromptdata" >
+    update ob_promptdata
+    set 
+        	  FULLNAME=#{fullname,jdbcType=VARCHAR} , 
+        	  CODE=#{code,jdbcType=VARCHAR} , 
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.ObPromptdata" >
+    select 
+    <include refid="Base_Column_List" />
+    from ob_promptdata
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 		   and    FULLNAME  = #{fullname}  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 		   and    CODE  = #{code}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.ObPromptdata">  
+    DELETE FROM ob_promptdata WHERE 
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="fullname != null" >
+  	 		   and    FULLNAME  = #{fullname}  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 		   and    CODE  = #{code}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  ob_promptdata WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+  <!--   之上为公共方法，不允许修改 -->
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from ob_promptdata where 
+     #{0}   LIKE concat(cancat('%',#{1}),'%')
+	
+	</select>
+</mapper>

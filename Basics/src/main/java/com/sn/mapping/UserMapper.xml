@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.User" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="code" column="CODE"  jdbcType="VARCHAR" />
+        <result property="realname" column="REALNAME"  jdbcType="VARCHAR" />
+        <result property="username" column="USERNAME"  jdbcType="VARCHAR" />
+        <result property="useraddressid" column="USERADDRESSID"  jdbcType="VARCHAR" />
+        <result property="roleid" column="ROLEID"  jdbcType="VARCHAR" />
+        <result property="departmentid" column="DEPARTMENTID"  jdbcType="VARCHAR" />
+        <result property="departmentname" column="DEPARTMENTNAME"  jdbcType="VARCHAR" />
+        <result property="sex" column="SEX"  jdbcType="VARCHAR" />
+        <result property="mobile" column="MOBILE"  jdbcType="VARCHAR" />
+        <result property="birthday" column="BIRTHDAY"  jdbcType="VARCHAR" />
+        <result property="title" column="TITLE"  jdbcType="VARCHAR" />
+        <result property="userpassword" column="USERPASSWORD"  jdbcType="VARCHAR" />
+        <result property="question" column="QUESTION"  jdbcType="VARCHAR" />
+        <result property="answerquestion" column="ANSWERQUESTION"  jdbcType="VARCHAR" />
+        <result property="lang" column="LANG"  jdbcType="VARCHAR" />
+        <result property="theme" column="THEME"  jdbcType="VARCHAR" />
+        <result property="firstvisit" column="FIRSTVISIT"  jdbcType="TIMESTAMP" />
+        <result property="previousvisit" column="PREVIOUSVISIT"  jdbcType="TIMESTAMP" />
+        <result property="lastvisit" column="LASTVISIT"  jdbcType="TIMESTAMP" />
+        <result property="logincount" column="LOGINCOUNT"  jdbcType="INTEGER" />
+        <result property="useronline" column="USERONLINE"  jdbcType="INTEGER" />
+        <result property="ipaddress" column="IPADDRESS"  jdbcType="VARCHAR" />
+        <result property="macaddress" column="MACADDRESS"  jdbcType="VARCHAR" />
+        <result property="deletemark" column="DELETEMARK"  jdbcType="INTEGER" />
+        <result property="description" column="DESCRIPTION"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="createuserid" column="CREATEUSERID"  jdbcType="VARCHAR" />
+        <result property="createuserrealname" column="CREATEUSERREALNAME"  jdbcType="VARCHAR" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="TIMESTAMP" />
+        <result property="modifyuserid" column="MODIFYUSERID"  jdbcType="VARCHAR" />
+        <result property="modifyuserrealname" column="MODIFYUSERREALNAME"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         CODE ,
+         REALNAME ,
+         USERNAME ,
+         USERADDRESSID ,
+         ROLEID ,
+         DEPARTMENTID ,
+         DEPARTMENTNAME ,
+         SEX ,
+         MOBILE ,
+         BIRTHDAY ,
+         TITLE ,
+         USERPASSWORD ,
+         QUESTION ,
+         ANSWERQUESTION ,
+         LANG ,
+         THEME ,
+         FIRSTVISIT ,
+         PREVIOUSVISIT ,
+         LASTVISIT ,
+         LOGINCOUNT ,
+         USERONLINE ,
+         IPADDRESS ,
+         MACADDRESS ,
+         DELETEMARK ,
+         DESCRIPTION ,
+         CREATEDATE ,
+         CREATEUSERID ,
+         CREATEUSERREALNAME ,
+         MODIFYDATE ,
+         MODIFYUSERID ,
+         MODIFYUSERREALNAME 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from base_user
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_user
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.User" >
+    
+         insert into base_user ( 
+         		FUID , 
+         	          		CODE , 
+         	          		REALNAME , 
+         	          		USERNAME , 
+         	          		USERADDRESSID , 
+         	          		ROLEID , 
+         	          		DEPARTMENTID , 
+         	          		DEPARTMENTNAME , 
+         	          		SEX , 
+         	          		MOBILE , 
+         	          		BIRTHDAY , 
+         	          		TITLE , 
+         	          		USERPASSWORD , 
+         	          		QUESTION , 
+         	          		ANSWERQUESTION , 
+         	          		LANG , 
+         	          		THEME , 
+         	          		FIRSTVISIT , 
+         	          		PREVIOUSVISIT , 
+         	          		LASTVISIT , 
+         	          		LOGINCOUNT , 
+         	          		USERONLINE , 
+         	          		IPADDRESS , 
+         	          		MACADDRESS , 
+         	          		DELETEMARK , 
+         	          		DESCRIPTION , 
+         	          		CREATEDATE , 
+         	          		CREATEUSERID , 
+         	          		CREATEUSERREALNAME , 
+         	          		MODIFYDATE , 
+         	          		MODIFYUSERID , 
+         	          		MODIFYUSERREALNAME  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{code,jdbcType=VARCHAR} , 
+   	 	   	 		#{realname,jdbcType=VARCHAR} , 
+   	 	   	 		#{username,jdbcType=VARCHAR} , 
+   	 	   	 		#{useraddressid,jdbcType=VARCHAR} , 
+   	 	   	 		#{roleid,jdbcType=VARCHAR} , 
+   	 	   	 		#{departmentid,jdbcType=VARCHAR} , 
+   	 	   	 		#{departmentname,jdbcType=VARCHAR} , 
+   	 	   	 		#{sex,jdbcType=VARCHAR} , 
+   	 	   	 		#{mobile,jdbcType=VARCHAR} , 
+   	 	   	 		#{birthday,jdbcType=VARCHAR} , 
+   	 	   	 		#{title,jdbcType=VARCHAR} , 
+   	 	   	 		#{userpassword,jdbcType=VARCHAR} , 
+   	 	   	 		#{question,jdbcType=VARCHAR} , 
+   	 	   	 		#{answerquestion,jdbcType=VARCHAR} , 
+   	 	   	 		#{lang,jdbcType=VARCHAR} , 
+   	 	   	 		#{theme,jdbcType=VARCHAR} , 
+   	 	   	 		#{firstvisit,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{previousvisit,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{lastvisit,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{logincount,jdbcType=INTEGER} , 
+   	 	   	 		#{useronline,jdbcType=INTEGER} , 
+   	 	   	 		#{ipaddress,jdbcType=VARCHAR} , 
+   	 	   	 		#{macaddress,jdbcType=VARCHAR} , 
+   	 	   	 		#{deletemark,jdbcType=INTEGER} , 
+   	 	   	 		#{description,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{createuserid,jdbcType=VARCHAR} , 
+   	 	   	 		#{createuserrealname,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifydate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{modifyuserid,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifyuserrealname,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.User">
+  	  insert into  base_user
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 	  CODE ,  
+  	  	</if>
+  	  	<if test="realname != null" >
+  	 	  REALNAME ,  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 	  USERNAME ,  
+  	  	</if>
+  	  	<if test="useraddressid != null" >
+  	 	  USERADDRESSID ,  
+  	  	</if>
+  	  	<if test="roleid != null" >
+  	 	  ROLEID ,  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 	  DEPARTMENTID ,  
+  	  	</if>
+  	  	<if test="departmentname != null" >
+  	 	  DEPARTMENTNAME ,  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 	  SEX ,  
+  	  	</if>
+  	  	<if test="mobile != null" >
+  	 	  MOBILE ,  
+  	  	</if>
+  	  	<if test="birthday != null" >
+  	 	  BIRTHDAY ,  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 	  TITLE ,  
+  	  	</if>
+  	  	<if test="userpassword != null" >
+  	 	  USERPASSWORD ,  
+  	  	</if>
+  	  	<if test="question != null" >
+  	 	  QUESTION ,  
+  	  	</if>
+  	  	<if test="answerquestion != null" >
+  	 	  ANSWERQUESTION ,  
+  	  	</if>
+  	  	<if test="lang != null" >
+  	 	  LANG ,  
+  	  	</if>
+  	  	<if test="theme != null" >
+  	 	  THEME ,  
+  	  	</if>
+  	  	<if test="firstvisit != null" >
+  	 	  FIRSTVISIT ,  
+  	  	</if>
+  	  	<if test="previousvisit != null" >
+  	 	  PREVIOUSVISIT ,  
+  	  	</if>
+  	  	<if test="lastvisit != null" >
+  	 	  LASTVISIT ,  
+  	  	</if>
+  	  	<if test="logincount != null" >
+  	 	  LOGINCOUNT ,  
+  	  	</if>
+  	  	<if test="useronline != null" >
+  	 	  USERONLINE ,  
+  	  	</if>
+  	  	<if test="ipaddress != null" >
+  	 	  IPADDRESS ,  
+  	  	</if>
+  	  	<if test="macaddress != null" >
+  	 	  MACADDRESS ,  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 	  DELETEMARK ,  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 	  DESCRIPTION ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 	  CREATEUSERID ,  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 	  CREATEUSERREALNAME ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 	  MODIFYUSERID ,  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 	  MODIFYUSERREALNAME   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="code != null" >
+        	#{code,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="realname != null" >
+        	#{realname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="username != null" >
+        	#{username,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="useraddressid != null" >
+        	#{useraddressid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="roleid != null" >
+        	#{roleid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="departmentid != null" >
+        	#{departmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="departmentname != null" >
+        	#{departmentname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sex != null" >
+        	#{sex,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="mobile != null" >
+        	#{mobile,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="birthday != null" >
+        	#{birthday,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="title != null" >
+        	#{title,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="userpassword != null" >
+        	#{userpassword,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="question != null" >
+        	#{question,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="answerquestion != null" >
+        	#{answerquestion,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="lang != null" >
+        	#{lang,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="theme != null" >
+        	#{theme,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="firstvisit != null" >
+        	#{firstvisit,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="previousvisit != null" >
+        	#{previousvisit,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="lastvisit != null" >
+        	#{lastvisit,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="logincount != null" >
+        	#{logincount,jdbcType=INTEGER} , 
+       </if>
+    	<if test="useronline != null" >
+        	#{useronline,jdbcType=INTEGER} , 
+       </if>
+    	<if test="ipaddress != null" >
+        	#{ipaddress,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="macaddress != null" >
+        	#{macaddress,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="deletemark != null" >
+        	#{deletemark,jdbcType=INTEGER} , 
+       </if>
+    	<if test="description != null" >
+        	#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="createuserid != null" >
+        	#{createuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createuserrealname != null" >
+        	#{createuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifyuserid != null" >
+        	#{modifyuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifyuserrealname != null" >
+        	#{modifyuserrealname,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.User" >
+    update  base_user
+    <set >
+    	<if test="code != null" >
+        	  CODE=#{code,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="realname != null" >
+        	  REALNAME=#{realname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="username != null" >
+        	  USERNAME=#{username,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="useraddressid != null" >
+        	  USERADDRESSID=#{useraddressid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="roleid != null" >
+        	  ROLEID=#{roleid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="departmentid != null" >
+        	  DEPARTMENTID=#{departmentid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="departmentname != null" >
+        	  DEPARTMENTNAME=#{departmentname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sex != null" >
+        	  SEX=#{sex,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="mobile != null" >
+        	  MOBILE=#{mobile,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="birthday != null" >
+        	  BIRTHDAY=#{birthday,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="title != null" >
+        	  TITLE=#{title,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="userpassword != null" >
+        	  USERPASSWORD=#{userpassword,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="question != null" >
+        	  QUESTION=#{question,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="answerquestion != null" >
+        	  ANSWERQUESTION=#{answerquestion,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="lang != null" >
+        	  LANG=#{lang,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="theme != null" >
+        	  THEME=#{theme,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="firstvisit != null" >
+        	  FIRSTVISIT=#{firstvisit,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="previousvisit != null" >
+        	  PREVIOUSVISIT=#{previousvisit,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="lastvisit != null" >
+        	  LASTVISIT=#{lastvisit,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="logincount != null" >
+        	  LOGINCOUNT=#{logincount,jdbcType=INTEGER} , 
+       </if>
+    	<if test="useronline != null" >
+        	  USERONLINE=#{useronline,jdbcType=INTEGER} , 
+       </if>
+    	<if test="ipaddress != null" >
+        	  IPADDRESS=#{ipaddress,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="macaddress != null" >
+        	  MACADDRESS=#{macaddress,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="deletemark != null" >
+        	  DELETEMARK=#{deletemark,jdbcType=INTEGER} , 
+       </if>
+    	<if test="description != null" >
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="createuserid != null" >
+        	  CREATEUSERID=#{createuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createuserrealname != null" >
+        	  CREATEUSERREALNAME=#{createuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifyuserid != null" >
+        	  MODIFYUSERID=#{modifyuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifyuserrealname != null" >
+        	  MODIFYUSERREALNAME=#{modifyuserrealname,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.User" >
+    update base_user
+    set 
+        	  CODE=#{code,jdbcType=VARCHAR} , 
+        	  REALNAME=#{realname,jdbcType=VARCHAR} , 
+        	  USERNAME=#{username,jdbcType=VARCHAR} , 
+        	  USERADDRESSID=#{useraddressid,jdbcType=VARCHAR} , 
+        	  ROLEID=#{roleid,jdbcType=VARCHAR} , 
+        	  DEPARTMENTID=#{departmentid,jdbcType=VARCHAR} , 
+        	  DEPARTMENTNAME=#{departmentname,jdbcType=VARCHAR} , 
+        	  SEX=#{sex,jdbcType=VARCHAR} , 
+        	  MOBILE=#{mobile,jdbcType=VARCHAR} , 
+        	  BIRTHDAY=#{birthday,jdbcType=VARCHAR} , 
+        	  TITLE=#{title,jdbcType=VARCHAR} , 
+        	  USERPASSWORD=#{userpassword,jdbcType=VARCHAR} , 
+        	  QUESTION=#{question,jdbcType=VARCHAR} , 
+        	  ANSWERQUESTION=#{answerquestion,jdbcType=VARCHAR} , 
+        	  LANG=#{lang,jdbcType=VARCHAR} , 
+        	  THEME=#{theme,jdbcType=VARCHAR} , 
+        	  FIRSTVISIT=#{firstvisit,jdbcType=TIMESTAMP} , 
+        	  PREVIOUSVISIT=#{previousvisit,jdbcType=TIMESTAMP} , 
+        	  LASTVISIT=#{lastvisit,jdbcType=TIMESTAMP} , 
+        	  LOGINCOUNT=#{logincount,jdbcType=INTEGER} , 
+        	  USERONLINE=#{useronline,jdbcType=INTEGER} , 
+        	  IPADDRESS=#{ipaddress,jdbcType=VARCHAR} , 
+        	  MACADDRESS=#{macaddress,jdbcType=VARCHAR} , 
+        	  DELETEMARK=#{deletemark,jdbcType=INTEGER} , 
+        	  DESCRIPTION=#{description,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  CREATEUSERID=#{createuserid,jdbcType=VARCHAR} , 
+        	  CREATEUSERREALNAME=#{createuserrealname,jdbcType=VARCHAR} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+        	  MODIFYUSERID=#{modifyuserid,jdbcType=VARCHAR} , 
+        	  MODIFYUSERREALNAME=#{modifyuserrealname,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.User" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_user
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 		   and    CODE  = #{code}  
+  	  	</if>
+  	  	<if test="realname != null" >
+  	 		   and    REALNAME  = #{realname}  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 		   and    USERNAME  = #{username}  
+  	  	</if>
+  	  	<if test="useraddressid != null" >
+  	 		   and    USERADDRESSID  = #{useraddressid}  
+  	  	</if>
+  	  	<if test="roleid != null" >
+  	 		   and    ROLEID  = #{roleid}  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="departmentname != null" >
+  	 		   and    DEPARTMENTNAME  = #{departmentname}  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 		   and    SEX  = #{sex}  
+  	  	</if>
+  	  	<if test="mobile != null" >
+  	 		   and    MOBILE  = #{mobile}  
+  	  	</if>
+  	  	<if test="birthday != null" >
+  	 		   and    BIRTHDAY  = #{birthday}  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 		   and    TITLE  = #{title}  
+  	  	</if>
+  	  	<if test="userpassword != null" >
+  	 		   and    USERPASSWORD  = #{userpassword}  
+  	  	</if>
+  	  	<if test="question != null" >
+  	 		   and    QUESTION  = #{question}  
+  	  	</if>
+  	  	<if test="answerquestion != null" >
+  	 		   and    ANSWERQUESTION  = #{answerquestion}  
+  	  	</if>
+  	  	<if test="lang != null" >
+  	 		   and    LANG  = #{lang}  
+  	  	</if>
+  	  	<if test="theme != null" >
+  	 		   and    THEME  = #{theme}  
+  	  	</if>
+  	  	<if test="firstvisit != null" >
+  	 		   and    FIRSTVISIT  = #{firstvisit}  
+  	  	</if>
+  	  	<if test="previousvisit != null" >
+  	 		   and    PREVIOUSVISIT  = #{previousvisit}  
+  	  	</if>
+  	  	<if test="lastvisit != null" >
+  	 		   and    LASTVISIT  = #{lastvisit}  
+  	  	</if>
+  	  	<if test="logincount != null" >
+  	 		   and    LOGINCOUNT  = #{logincount}  
+  	  	</if>
+  	  	<if test="useronline != null" >
+  	 		   and    USERONLINE  = #{useronline}  
+  	  	</if>
+  	  	<if test="ipaddress != null" >
+  	 		   and    IPADDRESS  = #{ipaddress}  
+  	  	</if>
+  	  	<if test="macaddress != null" >
+  	 		   and    MACADDRESS  = #{macaddress}  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 		   and    DELETEMARK  = #{deletemark}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 		   and    CREATEUSERID  = #{createuserid}  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 		   and    CREATEUSERREALNAME  = #{createuserrealname}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 		   and    MODIFYUSERID  = #{modifyuserid}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.User">  
+    DELETE FROM base_user WHERE 
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 		   and    CODE  = #{code}  
+  	  	</if>
+  	  	<if test="realname != null" >
+  	 		   and    REALNAME  = #{realname}  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 		   and    USERNAME  = #{username}  
+  	  	</if>
+  	  	<if test="useraddressid != null" >
+  	 		   and    USERADDRESSID  = #{useraddressid}  
+  	  	</if>
+  	  	<if test="roleid != null" >
+  	 		   and    ROLEID  = #{roleid}  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="departmentname != null" >
+  	 		   and    DEPARTMENTNAME  = #{departmentname}  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 		   and    SEX  = #{sex}  
+  	  	</if>
+  	  	<if test="mobile != null" >
+  	 		   and    MOBILE  = #{mobile}  
+  	  	</if>
+  	  	<if test="birthday != null" >
+  	 		   and    BIRTHDAY  = #{birthday}  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 		   and    TITLE  = #{title}  
+  	  	</if>
+  	  	<if test="userpassword != null" >
+  	 		   and    USERPASSWORD  = #{userpassword}  
+  	  	</if>
+  	  	<if test="question != null" >
+  	 		   and    QUESTION  = #{question}  
+  	  	</if>
+  	  	<if test="answerquestion != null" >
+  	 		   and    ANSWERQUESTION  = #{answerquestion}  
+  	  	</if>
+  	  	<if test="lang != null" >
+  	 		   and    LANG  = #{lang}  
+  	  	</if>
+  	  	<if test="theme != null" >
+  	 		   and    THEME  = #{theme}  
+  	  	</if>
+  	  	<if test="firstvisit != null" >
+  	 		   and    FIRSTVISIT  = #{firstvisit}  
+  	  	</if>
+  	  	<if test="previousvisit != null" >
+  	 		   and    PREVIOUSVISIT  = #{previousvisit}  
+  	  	</if>
+  	  	<if test="lastvisit != null" >
+  	 		   and    LASTVISIT  = #{lastvisit}  
+  	  	</if>
+  	  	<if test="logincount != null" >
+  	 		   and    LOGINCOUNT  = #{logincount}  
+  	  	</if>
+  	  	<if test="useronline != null" >
+  	 		   and    USERONLINE  = #{useronline}  
+  	  	</if>
+  	  	<if test="ipaddress != null" >
+  	 		   and    IPADDRESS  = #{ipaddress}  
+  	  	</if>
+  	  	<if test="macaddress != null" >
+  	 		   and    MACADDRESS  = #{macaddress}  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 		   and    DELETEMARK  = #{deletemark}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 		   and    CREATEUSERID  = #{createuserid}  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 		   and    CREATEUSERREALNAME  = #{createuserrealname}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 		   and    MODIFYUSERID  = #{modifyuserid}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  base_user WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.User" >
+select count(*) from base_user
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="code != null" >
+  	 		   and    CODE  = #{code}  
+  	  	</if>
+  	  	<if test="realname != null" >
+  	 		   and    REALNAME  = #{realname}  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 		   and    USERNAME  = #{username}  
+  	  	</if>
+  	  	<if test="useraddressid != null" >
+  	 		   and    USERADDRESSID  = #{useraddressid}  
+  	  	</if>
+  	  	<if test="roleid != null" >
+  	 		   and    ROLEID  = #{roleid}  
+  	  	</if>
+  	  	<if test="departmentid != null" >
+  	 		   and    DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="departmentname != null" >
+  	 		   and    DEPARTMENTNAME  = #{departmentname}  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 		   and    SEX  = #{sex}  
+  	  	</if>
+  	  	<if test="mobile != null" >
+  	 		   and    MOBILE  = #{mobile}  
+  	  	</if>
+  	  	<if test="birthday != null" >
+  	 		   and    BIRTHDAY  = #{birthday}  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 		   and    TITLE  = #{title}  
+  	  	</if>
+  	  	<if test="userpassword != null" >
+  	 		   and    USERPASSWORD  = #{userpassword}  
+  	  	</if>
+  	  	<if test="question != null" >
+  	 		   and    QUESTION  = #{question}  
+  	  	</if>
+  	  	<if test="answerquestion != null" >
+  	 		   and    ANSWERQUESTION  = #{answerquestion}  
+  	  	</if>
+  	  	<if test="lang != null" >
+  	 		   and    LANG  = #{lang}  
+  	  	</if>
+  	  	<if test="theme != null" >
+  	 		   and    THEME  = #{theme}  
+  	  	</if>
+  	  	<if test="firstvisit != null" >
+  	 		   and    FIRSTVISIT  = #{firstvisit}  
+  	  	</if>
+  	  	<if test="previousvisit != null" >
+  	 		   and    PREVIOUSVISIT  = #{previousvisit}  
+  	  	</if>
+  	  	<if test="lastvisit != null" >
+  	 		   and    LASTVISIT  = #{lastvisit}  
+  	  	</if>
+  	  	<if test="logincount != null" >
+  	 		   and    LOGINCOUNT  = #{logincount}  
+  	  	</if>
+  	  	<if test="useronline != null" >
+  	 		   and    USERONLINE  = #{useronline}  
+  	  	</if>
+  	  	<if test="ipaddress != null" >
+  	 		   and    IPADDRESS  = #{ipaddress}  
+  	  	</if>
+  	  	<if test="macaddress != null" >
+  	 		   and    MACADDRESS  = #{macaddress}  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 		   and    DELETEMARK  = #{deletemark}  
+  	  	</if>
+  	  	<if test="description != null" >
+  	 		   and    DESCRIPTION  = #{description}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 		   and    CREATEUSERID  = #{createuserid}  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 		   and    CREATEUSERREALNAME  = #{createuserrealname}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 		   and    MODIFYUSERID  = #{modifyuserid}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+    </where>  
+</select>
+
+  <!--   之上为公共方法，不允许修改 -->
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from base_user where 
+     #{0}   LIKE concat(cancat('%',#{1}),'%')
+	
+	</select>
+	
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.User" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_user
+      <where>  
+		<if test="departmentid != null" >
+  	 		       DEPARTMENTID  = #{departmentid}  
+  	  	</if>
+  	  	<if test="deletemark != null" >
+  	 		   and    DELETEMARK  = #{deletemark}  
+  	  	</if>
+  	  	<if test="username != null " >
+  	  			and USERNAME like CONCAT('%','${username}','%' )  
+  	  	</if>
+  	  	</where>
+	</select>
+	
+	
+	
+</mapper>

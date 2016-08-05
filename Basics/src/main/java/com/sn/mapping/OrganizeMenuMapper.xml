@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.OrganizeMenuMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.OrganizeMenu" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="organizeId" column="ORGANIZE_ID"  jdbcType="VARCHAR" />
+        <result property="menuId" column="MENU_ID"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+        <result property="createuserrealname" column="CREATEUSERREALNAME"  jdbcType="VARCHAR" />
+        <result property="createuserid" column="CREATEUSERID"  jdbcType="VARCHAR" />
+        <result property="modifydate" column="MODIFYDATE"  jdbcType="TIMESTAMP" />
+        <result property="modifyuserrealname" column="MODIFYUSERREALNAME"  jdbcType="VARCHAR" />
+        <result property="modifyuserid" column="MODIFYUSERID"  jdbcType="VARCHAR" />
+        <result property="operationid" column="OPERATIONID"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         ORGANIZE_ID ,
+         MENU_ID ,
+         CREATEDATE ,
+         CREATEUSERREALNAME ,
+         CREATEUSERID ,
+         MODIFYDATE ,
+         MODIFYUSERREALNAME ,
+         MODIFYUSERID ,
+         OPERATIONID 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from base_organize_menu
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from base_organize_menu
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.OrganizeMenu" >
+    
+         insert into base_organize_menu ( 
+         		FUID , 
+         	          		ORGANIZE_ID , 
+         	          		MENU_ID , 
+         	          		CREATEDATE , 
+         	          		CREATEUSERREALNAME , 
+         	          		CREATEUSERID , 
+         	          		MODIFYDATE , 
+         	          		MODIFYUSERREALNAME , 
+         	          		MODIFYUSERID , 
+         	          		OPERATIONID  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{organizeId,jdbcType=VARCHAR} , 
+   	 	   	 		#{menuId,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{createuserrealname,jdbcType=VARCHAR} , 
+   	 	   	 		#{createuserid,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifydate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{modifyuserrealname,jdbcType=VARCHAR} , 
+   	 	   	 		#{modifyuserid,jdbcType=VARCHAR} , 
+   	 	   	 		#{operationid,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.OrganizeMenu">
+  	  insert into  base_organize_menu
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="organizeId != null" >
+  	 	  ORGANIZE_ID ,  
+  	  	</if>
+  	  	<if test="menuId != null" >
+  	 	  MENU_ID ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE ,  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 	  CREATEUSERREALNAME ,  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 	  CREATEUSERID ,  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 	  MODIFYDATE ,  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 	  MODIFYUSERREALNAME ,  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 	  MODIFYUSERID ,  
+  	  	</if>
+  	  	<if test="operationid != null" >
+  	 	  OPERATIONID   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="organizeId != null" >
+        	#{organizeId,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="menuId != null" >
+        	#{menuId,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="createuserrealname != null" >
+        	#{createuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createuserid != null" >
+        	#{createuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifyuserrealname != null" >
+        	#{modifyuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifyuserid != null" >
+        	#{modifyuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="operationid != null" >
+        	#{operationid,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.OrganizeMenu" >
+    update  base_organize_menu
+    <set >
+    	<if test="organizeId != null" >
+        	  ORGANIZE_ID=#{organizeId,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="menuId != null" >
+        	  MENU_ID=#{menuId,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="createuserrealname != null" >
+        	  CREATEUSERREALNAME=#{createuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createuserid != null" >
+        	  CREATEUSERID=#{createuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifydate != null" >
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="modifyuserrealname != null" >
+        	  MODIFYUSERREALNAME=#{modifyuserrealname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="modifyuserid != null" >
+        	  MODIFYUSERID=#{modifyuserid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="operationid != null" >
+        	  OPERATIONID=#{operationid,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.OrganizeMenu" >
+    update base_organize_menu
+    set 
+        	  ORGANIZE_ID=#{organizeId,jdbcType=VARCHAR} , 
+        	  MENU_ID=#{menuId,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP} , 
+        	  CREATEUSERREALNAME=#{createuserrealname,jdbcType=VARCHAR} , 
+        	  CREATEUSERID=#{createuserid,jdbcType=VARCHAR} , 
+        	  MODIFYDATE=#{modifydate,jdbcType=TIMESTAMP} , 
+        	  MODIFYUSERREALNAME=#{modifyuserrealname,jdbcType=VARCHAR} , 
+        	  MODIFYUSERID=#{modifyuserid,jdbcType=VARCHAR} , 
+        	  OPERATIONID=#{operationid,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.OrganizeMenu" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_organize_menu
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="organizeId != null" >
+  	 		   and    ORGANIZE_ID  = #{organizeId}  
+  	  	</if>
+  	  	<if test="menuId != null" >
+  	 		   and    MENU_ID  = #{menuId}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 		   and    CREATEUSERREALNAME  = #{createuserrealname}  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 		   and    CREATEUSERID  = #{createuserid}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 		   and    MODIFYUSERID  = #{modifyuserid}  
+  	  	</if>
+  	  	<if test="operationid != null" >
+  	 		   and    OPERATIONID  = #{operationid}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.OrganizeMenu">  
+    DELETE FROM base_organize_menu  
+    <where>
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="organizeId != null" >
+  	 		   and    ORGANIZE_ID  = #{organizeId}  
+  	  	</if>
+  	  	<if test="menuId != null" >
+  	 		   and    MENU_ID  = #{menuId}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  	<if test="createuserrealname != null" >
+  	 		   and    CREATEUSERREALNAME  = #{createuserrealname}  
+  	  	</if>
+  	  	<if test="createuserid != null" >
+  	 		   and    CREATEUSERID  = #{createuserid}  
+  	  	</if>
+  	  	<if test="modifydate != null" >
+  	 		   and    MODIFYDATE  = #{modifydate}  
+  	  	</if>
+  	  	<if test="modifyuserrealname != null" >
+  	 		   and    MODIFYUSERREALNAME  = #{modifyuserrealname}  
+  	  	</if>
+  	  	<if test="modifyuserid != null" >
+  	 		   and    MODIFYUSERID  = #{modifyuserid}  
+  	  	</if>
+  	  	<if test="operationid != null" >
+  	 		   and    OPERATIONID  = #{operationid}  
+  	  	</if>
+  	  	</where>
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  base_organize_menu WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+  <!--   之上为公共方法，不允许修改 -->
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from base_organize_menu where 
+     #{0}   LIKE concat(cancat('%',#{1}),'%')
+	
+	</select>
+</mapper>
